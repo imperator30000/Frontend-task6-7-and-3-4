@@ -1,0 +1,791 @@
+:root {
+    --color-text-default: black;
+    --color-text-hover: red;
+    --color-background: rgb(242, 243, 247);
+    --color-hover-background: lightgray;
+    --color-header-button: black;
+    --color-button-item: white;
+    --transition-time: 0.3s;
+
+
+    --font-family-primary: "MTS Wide", sans-serif;
+}
+
+html {
+    font-family: var(--font-family-primary);
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    
+}
+
+.second-menu.empty-block-for-leave-a-request {
+    display: none;
+}
+
+.app-header-content{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+}
+.main-menu {
+    display: flex;
+    justify-content: left;
+    padding-left: 8px;
+    padding-bottom: 8px;
+    z-index: -1;
+}
+
+.leave-a-request {
+    display: none;
+}
+
+.app-header {
+    display: flex;
+    justify-content: center;
+    padding: 16px 24px;
+}
+
+.app-header-content .actions {
+    display: flex;
+    align-self: center;
+    gap: 8px;
+}
+
+
+
+.app-header-content button{
+    border-radius: 8px;
+    height: 44px;
+    border: none;
+    background-color: var(--color-header-button);
+    padding: 10px;
+}
+
+
+.app-header-content .menu {
+    border-radius: 8px;
+    height: 44px;
+    width: 44px;
+    border: none;
+    background-color: var(--color-header-button);
+}
+
+
+.app-header-content button img {
+    filter: invert(1); 
+}
+
+.app-header-content .telegram, 
+.app-header-content .mail {
+    width: 44px;
+}
+
+.app-header-content .phone {
+    background-color: white;
+    width: 189px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-header-content .phone p{
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 500;
+}
+.app-header-content .phone img {
+    display: none;
+}
+
+.app-header-content .order {
+    background-color: var(--color-text-hover);
+    width: 169px;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-button-item);
+}
+
+
+
+.main-menu input[type="radio"] {
+    display: none;
+}
+
+
+.main-menu-items{
+    display: flex;
+    gap: 12px;
+}
+
+.main {
+    height: 3000px;
+}
+html {
+    background-color: var(--color-background);
+}
+
+.main-menu:has(.selected .product-radio:checked) > .main-menu-items-data > .second-menu.product,
+.main-menu:has(.selected .service-radio:checked) > .main-menu-items-data > .second-menu.service,
+.main-menu:has(.selected .events-radio:checked) > .main-menu-items-data > .second-menu.events,
+.main-menu:has(.selected .support-radio:checked) > .main-menu-items-data > .second-menu.support{
+    display: flex;
+    animation: slideY var(--transition-time) ease 0.01s forwards;
+}
+
+
+
+
+.not-selected {
+    display: none;
+    color: var(--color-text-hover);
+}
+
+
+
+.arrow svg {
+    transition: transform 0.3s ease, fill 0.3s ease;
+    fill: currentColor;
+    color: var(--color-text-default);
+}
+
+.main-menu-item .arrow {
+    height: 24px;
+}
+
+
+.main-menu-item:hover .arrow svg {
+    color: var(--color-text-hover);
+}
+
+.main-menu-item:hover label {
+    color: var(--color-text-hover);
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.main-menu-item:has(.product-radio:checked) .arrow svg,
+.main-menu-item:has(.service-radio:checked) .arrow svg,
+.main-menu-item:has(.events-radio:checked) .arrow svg,
+.main-menu-item:has(.support-radio:checked) .arrow svg {
+    transform: rotate(-180deg);
+    color: var(--color-text-hover);
+}
+
+.main-menu-item:has(.product-radio:checked) > .selected,
+.main-menu-item:has(.service-radio:checked) > .selected,
+.main-menu-item:has(.events-radio:checked) > .selected,
+.main-menu-item:has(.support-radio:checked) > .selected {
+    display: none;
+}
+.main-menu-item:has(.product-radio:checked) > .not-selected,
+.main-menu-item:has(.service-radio:checked) > .not-selected,
+.main-menu-item:has(.events-radio:checked) > .not-selected,
+.main-menu-item:has(.support-radio:checked) > .not-selected {
+    display: block;
+}
+
+.second-menu:has(.iaas-radio:checked) > .second-menu-items-data.product > .third-menu.iaas,
+.second-menu:has(.saas-radio:checked) > .second-menu-items-data.product > .third-menu.saas ,
+.second-menu:has(.dbaas-radio:checked) > .second-menu-items-data.product > .third-menu.dbaas ,
+.second-menu:has(.secaas-radio:checked) > .second-menu-items-data.product > .third-menu.secaas ,
+.second-menu:has(.naas-radio:checked) > .second-menu-items-data.product > .third-menu.naas ,
+.second-menu:has(.ai-cloud-radio:checked) > .second-menu-items-data.product > .third-menu.ai-cloud {
+    display: flex;
+}
+
+
+.second-menu:has(.consulting-and-project-services-radio:checked) > .second-menu-items-data.service > .third-menu.consulting-and-project-services,
+.second-menu:has(.professional-services-outsourcing-radio:checked) > .second-menu-items-data.service > .third-menu.professional-services-outsourcing,
+.second-menu:has(.dedicated-infrastructure-custom-radio:checked) > .second-menu-items-data.service > .third-menu.dedicated-infrastructure-custom {
+    display: flex;
+}
+
+.menu-checkbox {
+    display: none;
+}
+
+.menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.burger {
+    row-gap: 4px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.menu-checkbox:checked + .menu-toggle .line:first-child {
+    transform: translateY(6px) rotate(45deg) scaleX(1.2)
+}
+
+.menu-checkbox:checked + .menu-toggle .line:nth-child(2) {
+    transform: scale(0);
+}
+
+.menu-checkbox:checked + .menu-toggle .line:last-child {
+    transform: translateY(-6px) rotate(-45deg) scaleX(1.2);
+}
+
+
+.line {
+    background: var(--color-button-item);
+    border-radius: 2px;
+    height: 2px;
+    transition-property: transform, width;
+    transition-duration: .3s, .3s;
+    width: 16px;
+}
+
+.line:nth-child(2) {
+    width: 18px;
+}
+
+.main-menu-items-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 128px; 
+    width: 100%; 
+    margin: 0;
+}
+
+.main-menu-item label{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.second-menu {
+    width: 100%;
+    display: none;
+    gap: 48px;
+    padding: 24px;
+    background: white;
+    border-radius: 24px;
+}
+
+
+.second-menu-items-data label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.second-menu.without-selector .title,
+.second-menu-items {
+    min-width: 355px;
+}
+
+.second-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.second-menu.without-selector .title label,
+.second-menu-items .title label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main-menu-item {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+
+
+.title .arrow {
+    display: none;
+}
+
+
+.third-menu-item:hover {
+    background-color: var(--color-hover-background);
+}
+
+.second-menu-items .second-menu-item input[type="radio"]:checked + label{
+    background-color: var(--color-header-button); 
+}
+
+.second-menu-items .second-menu-item input[type="radio"]:checked + label{
+    color: white;
+}
+.second-menu-items .second-menu-item label,
+.main-menu-items label,
+button  {
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    height: 100%;
+}
+
+button {
+    justify-content: center;
+}
+
+.second-menu-items .second-menu-item {
+    height: 36px;
+    
+}
+
+.second-menu-items .title{
+    padding-left: 16px;
+    margin-bottom: 16px;
+}
+
+.second-menu-items .second-menu-item:hover label{
+    background-color: var(--color-hover-background);
+    
+}
+
+.third-menu {
+    display: none;
+    flex-direction: column;
+}
+.third-menu-without-selector {
+    display: grid;
+}
+.third-menu-items {
+    display: grid;
+}
+.third-menu-items,
+.third-menu-without-selector {
+    width: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.third-menu-item {
+    border-radius: 5px;
+    display: flex;
+    padding: 12px;
+    gap: 16px;
+}
+.third-menu-without-selector.support {
+    grid-template-columns: repeat(2, 1fr);
+} 
+
+
+.second-menu.without-selector .description {
+    font-size: 0.875rem; 
+    line-height: 1.25rem;
+    font-weight: 400; 
+    font-family: Arial, Helvetica, sans-serif; 
+    color: #666;
+    margin: 0;
+}
+
+.third-menu-item .name {
+    font-size: 1.0625rem; 
+    line-height: 1.5rem; 
+    font-weight: 500; 
+    font-family: Arial, Helvetica, sans-serif; 
+    color: #333; 
+    margin: 0;
+}
+
+.third-menu-item .description {
+    font-size: 0.875rem; 
+    line-height: 1.25rem;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666;
+    margin: 0;
+}
+
+.support .third-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.support .third-menu-item-text {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1500px) {
+    .third-menu-items,
+    .third-menu-without-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1280px) {
+    .plus-minus {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .vertical-line, .horizontal-line {
+        position: absolute;
+        background-color: var(--color-header-button);
+        height: 16px;
+        width: 2px; 
+        transition: transform 0.3s ease;
+    }
+    
+    .horizontal-line {
+        transform: rotate(90deg);
+    }
+
+    label {
+        cursor: pointer;
+    }
+    .app-header {
+        background-color: none;
+        transition: background-color 0.3s ease;
+    }   
+
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .title .arrow {
+        display: flex;
+    }
+
+
+
+    .title .description {
+        display: none;
+    }
+    
+
+    .main-menu-items,
+    .second-menu-item,
+    .third-menu-items,
+    .second-menu-items-data,
+    .third-menu-without-selector {
+        display: none;
+    }
+    
+    .third-menu img,
+    .third-menu-without-selector img {
+        width: 0;
+        height: 0;
+    }
+    
+    .second-menu-items-data,
+    .third-menu-items,
+    .third-menu-without-selector {
+        flex-direction: column;
+    }
+    
+    .main-menu {
+        top: 0;
+        display: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        justify-content: right;
+        padding-top: 82px;
+        box-sizing: border-box;
+        right: 0;
+        overflow-y: scroll;
+    }
+    
+    .main-menu-items-data {
+        top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0;
+        width: 400px;
+        position: relative;
+        background-color: white;
+    }
+
+    .second-menu {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        padding: 12px;
+        border-radius: 0;
+        width: 100%;
+        gap: 0;
+        margin-left: auto;
+        animation: none;
+    }
+
+    .second-menu-items .title{
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+    
+    .third-menu {
+        display: flex;
+        flex-direction: column;
+        margin: 8px 16px;
+    }
+
+    .third-menu .title {
+        justify-content: start;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .third-menu .not-selected {
+        color: var(--color-text-default);
+    }
+
+    .second-menu-items:has(.second-menu-product-radio:checked) > .title > .not-selected,
+    .second-menu-items:has(.second-menu-service-radio:checked) > .title > .not-selected,
+    .second-menu:has(.title .second-menu-events-radio:checked) > .title > .not-selected,
+    .second-menu:has(.title .second-menu-support-radio:checked) > .title > .not-selected  {
+        display: block;
+    }
+    .second-menu-items:has(.second-menu-product-radio:checked) .arrow svg,
+    .second-menu-items:has(.second-menu-service-radio:checked) .arrow svg,
+    .second-menu:has(.title .second-menu-events-radio:checked) .arrow svg,
+    .second-menu:has(.title .second-menu-support-radio:checked) .arrow svg  {
+        transform: rotate(-180deg);
+    }
+    
+
+    .second-menu-items:has(.second-menu-product-radio:checked) > .title > .selected,
+    .second-menu-items:has(.second-menu-service-radio:checked) > .title > .selected,
+    .second-menu:has(.title .second-menu-events-radio:checked) > .title > .selected,
+    .second-menu:has(.title .second-menu-support-radio:checked) > .title > .selected {
+        display: none;
+    }
+
+
+    .main-menu:has(.selected .second-menu-product-radio:checked) > .main-menu-items-data > .second-menu.product > .second-menu-items-data.product, 
+    .main-menu:has(.selected .second-menu-service-radio:checked) > .main-menu-items-data > .second-menu.service > .second-menu-items-data.service,
+    .main-menu:has(.selected .second-menu-events-radio:checked) > .main-menu-items-data > .second-menu.events > .third-menu-without-selector,
+    .main-menu:has(.selected .second-menu-support-radio:checked) > .main-menu-items-data > .second-menu.support > .third-menu-without-selector{
+        display: flex;
+    }
+
+    .third-menu:has(.third-menu-iaas-radio:checked) .selected, 
+    .third-menu:has(.third-menu-saas-radio:checked) .selected, 
+    .third-menu:has(.third-menu-dbaas-radio:checked) .selected, 
+    .third-menu:has(.third-menu-secaas-radio:checked) .selected, 
+    .third-menu:has(.third-menu-naas-radio:checked) .selected, 
+    .third-menu:has(.third-menu-ai-cloud-radio:checked) .selected {
+        display: none;
+    }
+
+    .third-menu:has(.third-menu-iaas-radio:checked) .plus-minus > .vertical-line, 
+    .third-menu:has(.third-menu-saas-radio:checked) .plus-minus > .vertical-line, 
+    .third-menu:has(.third-menu-dbaas-radio:checked) .plus-minus > .vertical-line, 
+    .third-menu:has(.third-menu-secaas-radio:checked) .plus-minus > .vertical-line,
+    .third-menu:has(.third-menu-naas-radio:checked) .plus-minus > .vertical-line, 
+    .third-menu:has(.third-menu-ai-cloud-radio:checked) .plus-minus > .vertical-line {
+        transform: rotate(90deg);
+    }
+    
+
+    .third-menu:has(.third-menu-iaas-radio:checked) .not-selected, 
+    .third-menu:has(.third-menu-saas-radio:checked) .not-selected, 
+    .third-menu:has(.third-menu-dbaas-radio:checked) .not-selected, 
+    .third-menu:has(.third-menu-secaas-radio:checked) .not-selected, 
+    .third-menu:has(.third-menu-naas-radio:checked) .not-selected, 
+    .third-menu:has(.third-menu-ai-cloud-radio:checked) .not-selected {
+        display: flex;
+    }
+
+    .third-menu:has(.third-menu-consulting-and-project-services-radio:checked) .selected,
+    .third-menu:has(.third-menu-professional-services-outsourcing-radio:checked) .selected,
+    .third-menu:has(.third-menu-dedicated-infrastructure-custom-radio:checked) .selected {
+        display: none;
+    }
+
+    .third-menu:has(.third-menu-consulting-and-project-services-radio:checked) .plus-minus > .vertical-line,
+    .third-menu:has(.third-menu-professional-services-outsourcing-radio:checked) .plus-minus > .vertical-line,
+    .third-menu:has(.third-menu-dedicated-infrastructure-custom-radio:checked) .plus-minus > .vertical-line {
+        transform: rotate(90deg);
+    }
+
+    .third-menu:has(.third-menu-consulting-and-project-services-radio:checked) .not-selected,
+    .third-menu:has(.third-menu-professional-services-outsourcing-radio:checked) .not-selected,
+    .third-menu:has(.third-menu-dedicated-infrastructure-custom-radio:checked) .not-selected {
+        display: flex;
+    }
+
+    .second-menu:has(.third-menu-iaas-radio:checked) > .second-menu-items-data.product > .third-menu.iaas > .third-menu-items,
+    .second-menu:has(.third-menu-saas-radio:checked) > .second-menu-items-data.product > .third-menu.saas > .third-menu-items,
+    .second-menu:has(.third-menu-dbaas-radio:checked) > .second-menu-items-data.product > .third-menu.dbaas > .third-menu-items,
+    .second-menu:has(.third-menu-secaas-radio:checked) > .second-menu-items-data.product > .third-menu.secaas > .third-menu-items,
+    .second-menu:has(.third-menu-naas-radio:checked) > .second-menu-items-data.product > .third-menu.naas > .third-menu-items,
+    .second-menu:has(.third-menu-ai-cloud-radio:checked) > .second-menu-items-data.product > .third-menu.ai-cloud > .third-menu-items {
+        display: flex;
+    }
+
+    .second-menu:has(.third-menu-consulting-and-project-services-radio:checked) > .second-menu-items-data.service > .third-menu.consulting-and-project-services > .third-menu-items,
+    .second-menu:has(.third-menu-professional-services-outsourcing-radio:checked) > .second-menu-items-data.service > .third-menu.professional-services-outsourcing > .third-menu-items,
+    .second-menu:has(.third-menu-dedicated-infrastructure-custom-radio:checked) > .second-menu-items-data.service > .third-menu.dedicated-infrastructure-custom  > .third-menu-items{
+        display: flex;
+    }
+
+
+    .menu {
+        display: flex;
+    }
+    header:has(.menu-checkbox:checked) > .main-menu {
+        display: flex;
+        animation: slideX var(--transition-time) ease;
+    }
+
+    header:has(.menu-checkbox:checked) > .app-header{
+        background-color: white; 
+        transition: background-color 0.3s ease; 
+    }
+
+
+    .second-menu-items-data label {
+        font-size: 17px;
+        font-weight: 400;
+    }
+    
+    
+    .second-menu.without-selector .title label,
+    .second-menu-items .title label  {
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+}
+@media (min-width: 1280px) {
+    header:has(.main-menu-item .selected input[type="radio"]:checked) > .main-menu,
+    header:has(.main-menu-item .selected input[type="radio"]:checked) > .app-header{
+        background-color: white;
+        transition: background-color 0.3s ease;
+    }
+    
+}
+
+
+@media (max-width: 768px) {
+
+
+    .second-menu {
+        width: 100%;
+        display: flex;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .second-menu-items {
+        width: auto;
+        display: flex;
+    }
+
+    .second-menu.link label,
+    .second-menu.without-selector .title,
+    .second-menu-items .title{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .main-menu {
+        padding-left: 0;
+    }
+
+    .main-menu-items-data {
+        width: 100%;
+    }
+
+    .button-container-leave-a-request {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10000;
+        padding: 24px;
+        padding-right: 36px;
+        box-sizing: border-box;
+        justify-content: center;
+    }
+    
+    .leave-a-request {
+        display: block;
+        width: 100%;
+        height: 50px;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .second-menu.empty-block-for-leave-a-request {
+        display: block;
+        min-height: 100px;
+        width: 100%;
+    }
+
+    .app-header-content .phone img {
+        display: flex;    
+    }
+
+    .app-header-content .phone {
+        width: 44px;
+        background: var(--color-header-button);
+    }
+
+    .app-header-content .order,
+    .app-header-content .mail,
+    .app-header-content .phone p {
+        display: none;
+    }
+    
+}
+
+@keyframes slideY {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideX {
+    0% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
